@@ -6,7 +6,20 @@ def login_add(user_name: str):
     site_name = input("What's the website or the game of your account ? ")
     login_account = input("What's your name on this site ? ")
     password = input("What's your password ? ")
-    user_account[user_name] = [site_name, login_account, password]
+    user_account[user_name].append = [site_name, login_account, password]
+
+
+def login_read(user_name: str):
+    print(user_account[user_name])
+
+
+def login_change(user_name: str):
+    new_name = input("What's your new name ?")
+    user_account[new_name] = user_account[user_name]
+
+
+def login_suppress(user_name: str):
+    del user_account[user_name]
 
 
 def login():
@@ -20,11 +33,11 @@ def login():
                 case 1:
                     login_add(user_name)
                 case 2:
-                    login_read()
+                    login_read(user_name)
                 case 3:
-                    login_change()
+                    login_change(user_name)
                 case 4:
-                    login_suppress()
+                    login_suppress(user_name)
 
 
 
