@@ -19,9 +19,40 @@ def login_change(user_name: str):
     user_account[new_name] = user_account[user_name]
 
 
+def del_by_site(user_name: str):
+    website = input("What's the website ? ")
+    for item in user_account[user_name]:
+        if website == item[0]:
+            user_account[user_name].remove(item)
+
+
+
+def del_by_name(user_name: str):
+    name = input("What's the website ? ")
+    for item in user_account[user_name]:
+        if name == item[1]:
+            user_account[user_name].remove(item)
+
+
+def del_by_password(user_name: str):
+    password = input("What's the website ? ")
+    for item in user_account[user_name]:
+        if password == item[2]:
+            user_account[user_name].remove(item)
+
+
 def login_suppress(user_name: str):
-    del user_account[user_name]
-    main_app()
+    user_number: int = -1
+    while user_number != 0:
+        print("You can suppress register's account by : \n 1. the website \n 2. the name \n 3. the password.")
+        user_number = int(input("Enter a number : "))
+        match user_number:
+            case 1:
+                del_by_site(user_name)
+            case 2:
+                del_by_name(user_name)
+            case 3:
+                del_by_password(user_name)
 
 
 def login():
@@ -64,6 +95,7 @@ def suppress():
 
 
 def main_app():
+    """Show the menu and select the decision from the user."""
     selection: int = -1
     while selection != 0:
         print("Welcome in Passman")
