@@ -26,7 +26,6 @@ def del_by_site(user_name: str):
             user_account[user_name].remove(item)
 
 
-
 def del_by_name(user_name: str):
     name = input("What's the website ? ")
     for item in user_account[user_name]:
