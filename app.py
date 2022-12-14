@@ -1,6 +1,40 @@
 user_account = {}
 
 
+class SignPaper:
+
+    def __init__(self, user_name: str, password: str):
+        self.user_name = {}
+        self.password = {}
+        self.AccountVault = AccountVault(user_name)
+
+    def change(self, decision: int, used_string: str):
+        match decision:
+            case 1:
+                self.user_name = used_string
+            case 2:
+                self.password = used_string
+
+
+class AccountVault:
+
+    def __init__(self, user_name: str, user_account_site: str = 'empty', user_account_name: str = 'empty',
+                 user_account_password: str = 'empty'):
+        self.user_name: str = 'empty_string'
+        self.user_account_site = []
+        self.user_account_name = []
+        self.user_account_password = []
+
+    def change(self, decision: int, used_string: str):
+        match decision:
+            case 1:
+                self.user_account_site = used_string
+            case 2:
+                self.user_account_name = used_string
+            case 3:
+                self.user_account_password = used_string
+
+
 def login_add(user_name: str):
     print("Enter your account data.")
     site_name = input("What's the website or the game of your account ? ")
@@ -24,7 +58,6 @@ def del_by_site(user_name: str):
     for item in user_account[user_name]:
         if website == item[0]:
             user_account[user_name].remove(item)
-
 
 
 def del_by_name(user_name: str):
@@ -63,7 +96,7 @@ def login():
             print(
                 "Welcome "
                 + user_name
-                + "! \n 1. Add an account \n 2. Read an account \n 3. Change an account name \n 4. "
+                + " ! \n 1. Add an account \n 2. Read an account \n 3. Change an account name \n 4. "
                   "Suppress an account \n 0. exit the login"
             )
             num_match = int(input("Enter a number : "))
