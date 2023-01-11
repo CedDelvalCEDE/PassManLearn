@@ -31,5 +31,8 @@ class AccountVault:
             case 3:
                 self.user_account_password = used_string
 
-    def deleteV(self, decision: int, used_string: str):
-        match decision:
+    def delete_vault(self, decision: int, used_string: str) ->bool:
+        position: int = 0
+        for used_string in self.user_account_site:
+            position += 1
+            del self.user_account_site[used_string]
