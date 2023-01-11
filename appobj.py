@@ -30,3 +30,6 @@ class AccountVault:
                 self.user_account_name = used_string
             case 3:
                 self.user_account_password = used_string
+
+    def deleteV(self, decision: int, used_string: str):
+        match decision:
